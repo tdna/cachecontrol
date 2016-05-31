@@ -38,7 +38,7 @@ class CassandraCache(object):
             cache.save()
         else:
             ttl = total_seconds(expires - datetime.now())
-            ttl = 1 if ttl < 0 else ttl
+            ttl = 1 if ttl <= 0 else ttl
             cache.ttl(ttl).save()
 
     def delete(self, key):
