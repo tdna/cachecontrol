@@ -29,9 +29,10 @@ class CassandraCache(object):
 
     def get(self, key):
         res = Cache.objects(key=key)
-        return dict(res.get()) if res else None
+        return res.get().val if res else None
 
     def set(self, key, value, expires=None):
+        print('sadfasdfsadfdadsfasdfad')
         cache = Cache(key=key, val=value, cached_at=datetime.now())
 
         if not expires:
