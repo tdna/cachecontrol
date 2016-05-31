@@ -16,3 +16,10 @@ try:
     from .redis_cache import RedisCache
 except ImportError:
     pass
+
+
+try:
+    import cassandra
+    from .cassandra_cache import CassandraCache
+except ImportError:
+    pass

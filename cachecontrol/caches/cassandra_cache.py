@@ -45,6 +45,8 @@ class CassandraCache(object):
         Cache.objects(key=key).delete()
 
     def clear(self):
+        """Helper for clearing all the keys in a database. Use with
+        caution!"""
         self.session.execute('TRUNCATE cache')
 
     def close(self):
